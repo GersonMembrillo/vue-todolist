@@ -1,0 +1,9 @@
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-size: 5rem;
+  background: grey;
+  color: white;
+}

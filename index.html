@@ -20,21 +20,27 @@
 		<link rel="stylesheet" href="./css/style.css" />
 		<title>2DU</title>
 	</head>
-	<body>
+	<body class="d-flex justify-content-center">
 		<div id="app">
 			<div class="container p-5">
-				<h1>2DU</h1>
-				<div class="list-container">
-					<ul v-if="taskList.length > 0">
+				<h1 class="text-center mb-0 rounded-top">2DU</h1>
+				<div class="list-container bg-light">
+					<ul class="mb-0 py-3" v-if="taskList.length > 0">
 						<li v-for="(task, index) in taskList" :key="index">
-							<span :class="task.done ? 'text-decoration-line-through' : '' ">{{task.text}}</span>
-							<button @click="completed(index)">Fatto</button>
-							<button @click="cancel(index)">Cancella</button>
+							<button class="btn btn-success m-2" @click="completed(index)">
+								<i class="fa-solid fa-check"></i>
+							</button>
+							<button class="btn btn-danger me-2" @click="cancel(index)">
+								<i class="fa-solid fa-xmark"></i>
+							</button>
+							<span @click="back(index)" :class="task.done ? 'text-decoration-line-through' : '' "
+								>{{task.text}}</span
+							>
 						</li>
 					</ul>
 					<h3 v-else>La lista è vuota</h3>
 				</div>
-				<div class="input-container">
+				<div class="input-container bg-secondary p-3 rounded-bottom">
 					<input
 						type="text"
 						text="ingredient"
@@ -42,7 +48,7 @@
 						v-model="ingredient"
 						@keyup.enter="newTask"
 					/>
-					<button class="btn btn-success" @click="newTask">Aggiungi mansione</button>
+					<button class="btn btn-primary ms-2" @click="newTask">Aggiungi mansione</button>
 				</div>
 			</div>
 		</div>

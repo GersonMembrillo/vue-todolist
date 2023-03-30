@@ -40,5 +40,8 @@ createApp({
 		completed(index) {
 			this.taskList[index].done = true;
 		},
+		back(index) {
+			this.taskList[index].done = false;
+		},
 	},
 }).mount('#app');
