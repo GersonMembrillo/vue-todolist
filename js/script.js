@@ -21,18 +21,16 @@ createApp({
 					done: false,
 				},
 			],
-			ingredient: '',
-			error: false,
+			newTask: {
+				text: '',
+				done: false,
+			},
 		};
 	},
 	methods: {
-		newTask() {
-			const newIngredient = {
-				text: this.ingredient,
-				done: false,
-			};
-			if (this.ingredient != '') this.taskList.push(newIngredient);
-			return;
+		addTask() {
+			this.taskList.unshift({ ...this.newTask });
+			this.newTask.text = '';
 		},
 		cancel(index) {
 			this.taskList.splice(index, 1);

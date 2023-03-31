@@ -33,9 +33,8 @@
 							<button class="btn btn-danger me-2" @click="cancel(index)">
 								<i class="fa-solid fa-xmark"></i>
 							</button>
-							<span @click="back(index)" :class="task.done ? 'text-decoration-line-through' : '' "
-								>{{task.text}}</span
-							>
+							<span @click="back(index)" :class="{'done' : task.done}">{{task.text}}</span>
+							<!-- old method-> :class="task.done ? 'done' : '' " -->
 						</li>
 					</ul>
 					<h3 v-else>La lista è vuota</h3>
@@ -45,10 +44,10 @@
 						type="text"
 						text="ingredient"
 						id="ingredient"
-						v-model="ingredient"
-						@keyup.enter="newTask"
+						v-model="newTask.text"
+						@keyup.enter="addTask"
 					/>
-					<button class="btn btn-primary ms-2" @click="newTask">Aggiungi mansione</button>
+					<button class="btn btn-primary ms-2" @click="addTask">Aggiungi mansione</button>
 				</div>
 			</div>
 		</div>
