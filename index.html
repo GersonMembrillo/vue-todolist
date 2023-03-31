@@ -26,8 +26,8 @@
 				<h1 class="text-center mb-0 rounded-top">2DU</h1>
 				<div class="list-container bg-light">
 					<ul class="mb-0 py-3" v-if="taskList.length > 0">
-						<li v-for="(task, index) in taskList" :key="index">
-							<button class="btn btn-success m-2" @click="completed(index)">
+						<li v-for="(task, index) in taskList" :key="index" @click.stop="checkTask(index)">
+							<button class="btn btn-success m-2" @click.stop="checkTask(index)">
 								<i class="fa-solid fa-check"></i>
 							</button>
 							<button class="btn btn-danger me-2" @click="cancel(index)">
@@ -37,7 +37,7 @@
 							<!-- old method-> :class="task.done ? 'done' : '' " -->
 						</li>
 					</ul>
-					<h3 v-else>La lista è vuota</h3>
+					<h3 class="text-center" v-else>La lista è vuota</h3>
 				</div>
 				<div class="input-container bg-secondary p-3 rounded-bottom">
 					<input

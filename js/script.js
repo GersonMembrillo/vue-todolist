@@ -35,11 +35,14 @@ createApp({
 		cancel(index) {
 			this.taskList.splice(index, 1);
 		},
-		completed(index) {
-			this.taskList[index].done = true;
-		},
-		back(index) {
-			this.taskList[index].done = false;
+		// completed(index) {
+		// 	this.taskList[index].done = true;
+		// },
+		// back(index) {
+		// 	this.taskList[index].done = false;
+		// },
+		checkTask(index) {
+			this.taskList[index].done = !this.taskList[index].done;
 		},
 	},
 }).mount('#app');
